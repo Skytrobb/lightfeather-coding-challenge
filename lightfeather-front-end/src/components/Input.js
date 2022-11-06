@@ -29,3 +29,10 @@ export const Input = ({label, onChange, value, name}) => {
     </InputContainer>
   )
 }
+
+Input.propTypes = {
+  label: React.propTypes.string,
+  onChange: React.propTypes.func,
+  value: React.propTypes.string,
+  name: React.propTypes.string,
+}

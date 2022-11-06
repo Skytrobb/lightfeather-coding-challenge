@@ -19,3 +19,8 @@ export const Button = ({text, onClick}) => {
     </React.Fragment>
   )
 }
+
+Button.propTypes = {
+  text: React.propTypes.string,
+  onClick: React.propTypes.func,
+}

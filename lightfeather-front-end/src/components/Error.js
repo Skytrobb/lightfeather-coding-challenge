@@ -14,3 +14,7 @@ export const Error = ({message}) => {
     </ StyledError>
   )
 }
+
+Error.propTypes = {
+  message: React.propTypes.string,
+}

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React from 'react'
 import lightfeatherlogo from '../images/lightfeatherstacked.jpeg'
 
 const TitleContainer = styled.div`
@@ -28,4 +29,8 @@ export const Title = ({text}) => {
       <Logo src={lightfeatherlogo} />
     </TitleContainer>
   )
+}
+
+Title.propTypes = {
+  text: React.propTypes.string
 }

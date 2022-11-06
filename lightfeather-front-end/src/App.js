@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
 import { Input } from './components/Input'
@@ -53,7 +53,6 @@ function App() {
     phoneNumber: '',
     supervisor: '',
   })
-  const [isLoading, setIsLoading] = useState(false)
   const [supervisorList, setSupervisorList] = useState()
   const [error, setError] = useState()
   const [isSuccessful, setIsSuccessful] = useState(false)
@@ -71,16 +70,12 @@ function App() {
   }, [])
 
   const fetchSupervisors = async () => {
-    setIsLoading(true)
     try {
       const response = await axios.get('http://localhost:3001/api/supervisors')
       console.log('supervisor response', response.data)
       setSupervisorList(response.data)
-      // setSupervisorList(data)
-      setIsLoading(false)
     } catch (error) {
       console.log('there was an error fetching supervisors', error)
-      setIsLoading(false)
     }
   }
 
@@ -134,41 +129,3 @@ function App() {
 }
 
 export default App;
-
-const data = [
-  "b - Cremin, Elijah",
-  "b - Denesik, Kobe",
-  "b - Gerhold, Jaquan",
-  "b - Tremblay, Terrell",
-  "c - Hermiston, Laverna",
-  "d - Braun, Ida",
-  "e - Raynor, Pascale",
-  "e - Zieme, Donny",
-  "g - Ziemann, Clifton",
-  "h - Hoppe, Lisa",
-  "i - Bartell, Angelina",
-  "i - Bechtelar, Bruce",
-  "i - Hane, Kathlyn",
-  "j - Wisozk, Gunner",
-  "k - Jacobi, Lucious",
-  "l - Becker, Anastacio",
-  "l - Gutmann, Rodrick",
-  "l - McLaughlin, Dorothea",
-  "m - Huels, Lavern",
-  "n - Schulist, Cali",
-  "p - Wyman, Kirsten",
-  "q - Collier, Ezequiel",
-  "q - Larson, Makayla",
-  "r - Runolfsson, River",
-  "t - Lockman, Garnett",
-  "t - Volkman, Jett",
-  "u - Beer, Dolores",
-  "u - Deckow, Lavon",
-  "u - Lehner, Magdalena",
-  "u - Olson, Karson",
-  "x - Brakus, Zena",
-  "x - D'Amore, Maribel",
-  "x - Schamberger, Lydia",
-  "y - Sauer, Rashad",
-  "z - Oberbrunner, Ricky"
-]

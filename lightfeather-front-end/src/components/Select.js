@@ -33,3 +33,11 @@ export const Select = ({label, onChange, value, name, options}) => {
     </SelectContainer>
   )
 }
+
+Select.propTypes = {
+  label: React.propTypes.string,
+  onChange: React.propTypes.func,
+  value: React.propTypes.string,
+  name: React.propTypes.string,
+  options: React.propTypes.array
+}
