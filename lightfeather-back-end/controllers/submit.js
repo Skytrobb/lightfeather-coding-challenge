@@ -4,10 +4,12 @@ const { body, validationResult } = require('express-validator');
 const router = express.Router();
 
 router.post('/', [
-  body('email').optional().isEmail(),
+  body('email').optional().isEmail().withMessage('must be valid email address'),
   body('firstName').not().isEmpty().isAlpha()
+    .withMessage("first name can't be empty or contain numbers")
     .withMessage('please provide a first name'),
   body('lastName').not().isEmpty().isAlpha()
+    .withMessage("name can't be empty or contain numbers")
     .withMessage('please provide a last name'),
   body('phoneNumber').optional().isMobilePhone('en-US'),
   body('supervisor').not().isEmpty().withMessage('please provide a supervisor'),

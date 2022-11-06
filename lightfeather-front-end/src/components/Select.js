@@ -28,7 +28,7 @@ export const Select = ({label, onChange, value, name, options}) => {
       <Label>{label}</Label>
       <StyledSelect onChange={onChange} name={name} value={value}>
         <option value="" disabled hidden>Choose Supervisor here</option>
-        { options.map((element, index) => (<option key={index} value={element}>{element}</option>)) }
+        { options && options.map((element, index) => (<option key={index} value={element}>{element}</option>)) }
       </StyledSelect>
     </SelectContainer>
   )
