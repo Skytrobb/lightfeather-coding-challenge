@@ -40,6 +40,11 @@ const Header = styled.div`
   margin-bottom: 20px;
 `
 
+const Success = styled.div`
+  margin-bottom: 10px;
+  color: green;
+`
+
 function App() {
   const [inputField, setInputField] = useState({
     firstName: '',
@@ -51,6 +56,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [supervisorList, setSupervisorList] = useState()
   const [error, setError] = useState()
+  const [isSuccessful, setIsSuccessful] = useState(false)
 
   const inputHandler = (e) => {
     console.log('handling input', e.target.name)
@@ -67,9 +73,10 @@ function App() {
   const fetchSupervisors = async () => {
     setIsLoading(true)
     try {
-      // const response = await axios.get('http://localhost:3001/api/supervisors')
-      // console.log('supervisor response', response.data)
-      setSupervisorList(data)
+      const response = await axios.get('http://localhost:3001/api/supervisors')
+      console.log('supervisor response', response.data)
+      setSupervisorList(response.data)
+      // setSupervisorList(data)
       setIsLoading(false)
     } catch (error) {
       console.log('there was an error fetching supervisors', error)
@@ -92,6 +99,7 @@ function App() {
         phoneNumber: '',
         supervisor: '',
       })
+      setIsSuccessful(true)
     } catch (error) {
       console.log('there was an error submitting the form', error)
       setError(error.response.data.errors)
@@ -114,7 +122,8 @@ function App() {
             <Select name="supervisor" value={supervisor} onChange={inputHandler} label={'Supervisor'} options={supervisorList} />
           </form>
         </FormContainer>
-        {error && <Error field={error[0].param} message={error[0].msg}/> }
+        {error && <Error message={error[0].msg}/> }
+        {isSuccessful && <Success>Submitted Successfully!</Success>}
         <Button onClick={() => {
           setError(null)
           submitForm()

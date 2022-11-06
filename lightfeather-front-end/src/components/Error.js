@@ -6,11 +6,11 @@ const StyledError = styled.div`
   margin-bottom: 10px;
 `
 
-export const Error = ({field, message}) => {
+export const Error = ({message}) => {
 
   return (
     <StyledError>
-      Error in {field}: {message}
+      Error: {message}
     </ StyledError>
   )
 }
