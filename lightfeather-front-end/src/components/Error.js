@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const StyledError = styled.div`
   color: red;
@@ -16,5 +18,5 @@ export const Error = ({message}) => {
 }
 
 Error.propTypes = {
-  message: React.propTypes.string,
+  message: PropTypes.string,
 }

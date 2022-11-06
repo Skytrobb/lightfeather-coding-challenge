@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  backend:
+    build:
+      context: "./lightfeather-back-end"
+      dockerfile: "Dockerfile"
+    volumes:
+      - "./lightfeather-back-end:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - "3001:3001"
+
+    environment:
+      - ENV=development
+  frontend:
+    build:
+      context: "./lightfeather-front-end"
+      dockerfile: "Dockerfile"
+    volumes:
+      - "./lightfeather-front-end:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - "3000:3000"

@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const StyledButton = styled.button`
   background-color: #008cd9;
@@ -21,6 +23,6 @@ export const Button = ({text, onClick}) => {
 }
 
 Button.propTypes = {
-  text: React.propTypes.string,
-  onClick: React.propTypes.func,
+  text: PropTypes.string,
+  onClick: PropTypes.func,
 }

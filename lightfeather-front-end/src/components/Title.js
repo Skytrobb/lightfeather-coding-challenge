@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import React from 'react'
 import lightfeatherlogo from '../images/lightfeatherstacked.jpeg'
+import PropTypes from 'prop-types'
+
 
 const TitleContainer = styled.div`
   display: flex;
@@ -32,5 +34,5 @@ export const Title = ({text}) => {
 }
 
 Title.propTypes = {
-  text: React.propTypes.string
+  text: PropTypes.string
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const StyledSelect = styled.select`
   border: 2px solid black;
@@ -35,9 +37,9 @@ export const Select = ({label, onChange, value, name, options}) => {
 }
 
 Select.propTypes = {
-  label: React.propTypes.string,
-  onChange: React.propTypes.func,
-  value: React.propTypes.string,
-  name: React.propTypes.string,
-  options: React.propTypes.array
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  name: PropTypes.string,
+  options: PropTypes.array
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const StyledInput = styled.input`
   border: 2px solid black;
@@ -31,8 +33,8 @@ export const Input = ({label, onChange, value, name}) => {
 }
 
 Input.propTypes = {
-  label: React.propTypes.string,
-  onChange: React.propTypes.func,
-  value: React.propTypes.string,
-  name: React.propTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  name: PropTypes.string,
 }
